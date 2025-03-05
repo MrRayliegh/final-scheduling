@@ -132,12 +132,16 @@ USE_I18N = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ This is required for production
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # This tells Django where your static files are
+    os.path.join(BASE_DIR, 'static'),  # ✅ Ensure this path exists
 ]
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
