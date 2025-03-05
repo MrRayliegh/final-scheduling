@@ -7,8 +7,6 @@ from .forms import ProgramScheduleForm
 from datetime import datetime
 from django.utils import timezone
 import traceback
-from openpyxl import Workbook
-from openpyxl.styles import Font, Alignment, Border, Side
 from collections import defaultdict
 import re , logging
 
