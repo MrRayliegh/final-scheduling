@@ -11,11 +11,13 @@ click==8.1.7
 colorama==0.4.6
 discord.py==2.2.3
 distlib==0.3.9
+dj-database-url==2.3.0
 Django==5.1.1
 docutils==0.21.2
 et_xmlfile==2.0.0
 filelock==3.17.0
 frozenlist==1.4.1
+gunicorn==23.0.0
 idna==3.6
 Kivy==2.3.0
 kivy-deps.angle==0.4.0
@@ -66,6 +68,7 @@ sh==2.2.1
 six==1.17.0
 sqlparse==0.5.1
 tkinterdnd2==0.4.2
+typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.1
 virtualenv==20.29.1
