@@ -31,6 +31,8 @@ SECRET_KEY = "django-insecure-tocv8(jup586=68#v26py9_b)*-)l@wq6nl%o!=&y@0m6tyv8l
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["*"]
+
 
 
 
