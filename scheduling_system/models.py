@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
-
+from scheduling_system.utils import safe_make_aware
+# Override Django's default make_aware with our safe function
+timezone.make_aware = safe_make_aware
 #DB fetching for instructors data
 class InstructorData(models.Model):
     instructor_id = models.AutoField(primary_key=True)

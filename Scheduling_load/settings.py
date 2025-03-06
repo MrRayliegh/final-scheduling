@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-tocv8(jup586=68#v26py9_b)*-)l@wq6nl%o!=&y@0m6tyv8l"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["final-scheduling-production.up.railway.app", "127.0.0.1", "localhost"]
 
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "whitenoise.runserver_nostatic", 
-    'whitenoise.runserver_nostatic',
     'scheduling_system',
 ]
 
@@ -80,11 +79,20 @@ WSGI_APPLICATION = "Scheduling_load.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        engine='django.db.backends.mysql'
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('MYSQL_DATABASE', 'railway'),
+        'USER': os.getenv('MYSQLUSER', 'root'),
+        'PASSWORD': os.getenv('MYSQLPASSWORD', ''),
+        'HOST': os.getenv('MYSQLHOST', 'yamabiko.proxy.rlwy.net'),
+        'PORT': int(os.getenv('MYSQLPORT', 57116)),  # Convert string to int
+        'OPTIONS': {'charset': 'utf8mb4'},
+        'init_command': "SET time_zone='+00:00';"  # Force UTC timezone
+
+    }
 }
+
+
 
 
 # Password validation
@@ -113,8 +121,9 @@ LANGUAGE_CODE = "en-us"
 
 # settings.py
 
-TIME_ZONE = 'UTC'  # Or your preferred timezone, e.g., 'Asia/Manila'
-USE_TZ = True
+USE_TZ = True  # Ensure Django handles timezone-aware datetime
+TIME_ZONE = 'UTC'  # Set a global timezone
+
 
 
 USE_I18N = True
@@ -128,11 +137,11 @@ USE_I18N = True
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

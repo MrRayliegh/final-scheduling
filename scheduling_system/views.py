@@ -9,6 +9,10 @@ from django.utils import timezone
 import traceback
 from collections import defaultdict
 import re , logging
+from scheduling_system.utils import safe_make_aware
+
+# Override Django's default make_aware with our safe function
+timezone.make_aware = safe_make_aware
 
 
 def home(request):
