@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': os.getenv('MYSQL_DATABASE', 'railway'),
         'USER': os.getenv('MYSQLUSER', 'root'),
         'PASSWORD': os.getenv('MYSQLPASSWORD', ''),
-        'HOST': os.getenv('MYSQLHOST', 'yamabiko.proxy.rlwy.net'),
+        'HOST': os.getenv('MYSQLHOST', 'mysql.railway.internal'),
         'PORT': int(os.getenv('MYSQLPORT', 57116)),  # Convert string to int
         'OPTIONS': {'charset': 'utf8mb4'},
         'init_command': "SET time_zone='+00:00';"  # Force UTC timezone
