@@ -103,8 +103,8 @@ class ProgramSchedule(models.Model):
     # Course Information
     course_code = models.CharField(max_length=50)
     course_name = models.CharField(max_length=200)
-    credit_hours = models.IntegerField(default=0)
-    credit_unit = models.IntegerField(default=0)
+    credit_hours = models.FloatField(default=0)
+    credit_unit = models.FloatField(default=0)
     semester = models.CharField(max_length=50)
 
     # Program Information
