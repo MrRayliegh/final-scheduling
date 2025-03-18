@@ -20,7 +20,7 @@ SECRET_KEY = "django-insecure-tocv8(jup586=68#v26py9_b)*-)l@wq6nl%o!=&y@0m6tyv8l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://final-scheduling-production.up.railway.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["final-scheduling-copy-production.up.railway.app", "127.0.0.1", "localhost"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://final-scheduling-production.up.railway.app"
